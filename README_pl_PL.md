@@ -13,7 +13,6 @@
 <a title="GitHub Commits" target="_blank" href="https://github.com/anarion80/siyuan-bullet-threading/commits/main"><img src="https://img.shields.io/github/commit-activity/m/anarion80/siyuan-bullet-threading.svg?style=flat-square"></a>
 <a title="Last Commit" target="_blank" href="https://github.com/anarion80/siyuan-bullet-threading/commits/main"><img src="https://img.shields.io/github/last-commit/anarion80/siyuan-bullet-threading.svg?style=flat-square&color=FF9900"></a>
 <br>
-<a href="https://buymeacoffee.com/anarion" target="_blank"><img src="https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-yellow.svg" alt="Buy Me Coffee"/></a>
 </p>
 
 <p align="center">
