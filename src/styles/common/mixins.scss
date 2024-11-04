@@ -1,0 +1,113 @@
+@use "sass:math";
+@use "var" as *;
+@use "utils" as *;
+@use "function" as *;
+
+@mixin focus-before($top, $left: 0) {
+  position: relative;
+
+  &::before {
+    @include reset-style();
+    @include reset-position();
+    content: "";
+    display: block;
+    position: absolute;
+    top: $top;
+    bottom: $top;
+    left: $left;
+    width: 3px;
+    z-index: 0;
+    height: calc(100% - $top * 2);
+    background-color: get($color, "brand", "base");
+    border-radius: get($radius, "max");
+  }
+}
+
+@mixin add-icon($icon_name, $color, $size, $position) {
+  background-color: $color;
+  $icon_url: "#{$asset-path}/icons/#{$icon_name}_black_#{$size}dp.svg";
+  -webkit-mask: url($icon_url) #{$position};
+  mask: url($icon_url) #{$position};
+}
+
+@mixin counter($h: 20px) {
+  @include center();
+  @include v-center($h);
+  @include item("component");
+  width: auto;
+  margin: 0;
+  border-radius: get($radius, "small");
+  padding: 0 math.div($h - 8px, 2);
+  &::after {
+    display: none !important;
+  }
+}
+
+@mixin emoji-icon($width, $fz, $icon-width) {
+  @include v-center($width);
+  @include center();
+  padding: 0;
+  width: $width;
+  // 原生emoji
+  font-size: $fz;
+
+  // 自定义emoji
+  img,
+  // twitter-emoji
+  svg.custom-icon {
+    @include svg($width, $icon-width);
+  }
+}
+
+@mixin icon-btn($type: "page", $w, $svg-w, $important: false) {
+  @include svg-div($w, $svg-w, $important: $important);
+  @include item($type, 1, $important);
+
+  border-radius: get($radius, "small");
+}
+
+@mixin drag-base {
+  background-color: get($bg, "focus", 1);
+  transition: unset !important;
+  border-radius: unset !important;
+}
+
+@mixin drag {
+  $drag-width: 2px;
+  $drag-color: get($color, "brand", "hover");
+
+  @include drag-base();
+
+  // 当前块的上方
+  &__top {
+    @include drag-base();
+    box-shadow: 0 0 - $drag-width $drag-color;
+  }
+
+  // 当前块的下方
+  &__bottom {
+    @include drag-base();
+    box-shadow: 0 $drag-width $drag-color;
+  }
+
+  // 当前块的左方
+  &__left {
+    @include drag-base();
+    box-shadow: -$drag-width 0 $drag-color;
+  }
+
+  // 当前块的右方
+  &__right {
+    @include drag-base();
+    box-shadow: $drag-width 0 $drag-color;
+  }
+}
+
+@mixin list-root {
+  // background-color: get($bg, "page", 2);
+  // font-weight: 600;
+  // border: $fn-border;
+  //   &--focus {
+  //   border-color: get($bg, "focus", 1);
+  // }
+}

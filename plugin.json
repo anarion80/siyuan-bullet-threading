@@ -1,0 +1,41 @@
+{
+  "name": "siyuan-bullet-threading",
+  "author": "anarion80",
+  "url": "https://github.com/anarion80/siyuan-bullet-threading",
+  "version": "0.1.0",
+  "minAppVersion": "3.0.12",
+  "backends": [
+    "windows",
+    "linux",
+    "darwin",
+    "docker",
+    "ios",
+    "android"
+  ],
+  "frontends": [
+    "desktop",
+    "mobile",
+    "browser-desktop",
+    "browser-mobile",
+    "desktop-window"
+  ],
+  "displayName": {
+    "en_US": "Bullet threading for lists",
+    "pl_PL": "Linie łączące elementy zagnieżdżonych list"
+  },
+  "description": {
+    "en_US": "A plugin that adds nice lines to nested list elements (bullets). Based on simliar plugin for LogSeq.",
+    "pl_PL": "Wtyczka dodająca estetyczne linie łączące elementy zagnieżdżonych list. Bazuje na podobnej wtyczce dla LogSeq."
+  },
+  "readme": {
+    "en_US": "README.md",
+    "pl_PL": "README_pl_PL.md"
+  },
+  "keywords": [
+    "plugin",
+    "bullet",
+    "threading",
+    "nested",
+    "list"
+  ]
+}

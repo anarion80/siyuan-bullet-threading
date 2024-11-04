@@ -1,0 +1,250 @@
+@use "sass:map";
+@use "sass:color";
+@use "function" as *;
+
+$asset-path: "asset";
+
+// 色板
+$color: () !default;
+$color-types: "blue", "orange", "red", "green", "cyan", "purple", "yellow",
+  "pink", "gray", "brand";
+$color: add-color($color, $color-types, 10);
+@for $i from 11 through 14 {
+  $color: map.set($color, "gray", $i, getRgb("gray", $i));
+}
+
+// 文字颜色
+$text: () !default;
+$text-types: "primary", "secondary", "placeholder", "disabled", "anti", "brand",
+  "focus", "meta-focus";
+$text: add-css-var($text, "text", $text-types);
+
+// 线条
+$border: () !default;
+$border: add-color($border, "border", 4);
+$fn-border: 1px solid get($border, 3);
+$fn-border-2: 1px solid get($border, 2);
+
+// 功能色
+$feat-types: "brand", "warning", "error", "success", "info";
+$states: "base", "hover", "focus", "active", "disabled", "light";
+$color: add-color($color, $feat-types, $states);
+$color: add-color($color, ("cyan", "purple", "yellow", "pink"), "base");
+
+// 背景色
+$bg: () !default;
+$bg-types: "base", "page", "component", "pop", "primarybg", "focus";
+$bg: add-color($bg, $bg-types, 4);
+
+@each $type in $bg-types {
+  $bg: map.set($bg, $type, 0, transparent);
+}
+
+// Box-shadow
+$shadow: () !default;
+@for $i from 0 through 3 {
+  $shadow: map.set($shadow, $i, var(--shadow-#{$i}));
+}
+
+//圆角
+$radius: () !default;
+$radius: map.merge(
+  (
+    "circle": 100%,
+    "max": 9999px,
+    "exlarge": 10px,
+    "large": 8px,
+    "medium": 6px,
+    "base": 4px,
+    "small": 3px,
+    "exsmall": 2px,
+  ),
+  $radius
+);
+
+// Typography
+$font-size: () !default;
+$font-size: map.merge(
+  (
+    "exlarge": 20px,
+    "large": 18px,
+    "medium": 14px,
+    "base": 13px,
+    "small": 12px,
+    "exsmall": 12px,
+  ),
+  $font-size
+);
+
+$component-size: () !default;
+$component-size: map.merge(
+  (
+    "large": 40px,
+    "medium": 32px,
+    "base": 28px,
+    "small": 24px,
+    "exsmall": 20px,
+  ),
+  $component-size
+);
+
+$component-padding: () !default;
+$component-padding: (
+  "medium": 4px 8px,
+  "base": 4px 8px,
+  "small": 4px 6px,
+  "exsmall": 2px 6px,
+);
+
+// icon
+$icon: () !default;
+$icon: map.merge(
+  (
+    "exlarge": 24px,
+    "large": 16px,
+    "medium": 14px,
+    "base": 12px,
+    "small": 10px,
+    "exsmall": 8px,
+  ),
+  $icon
+);
+
+// zIndex
+$z-index: () !default;
+$z-index: map.merge(
+  (
+    "normal": 0,
+    "svg": 1,
+    "top": 10,
+    "pop": 20,
+  ),
+  $z-index
+);
+
+// 滚动条
+$scroll: () !default;
+$scroll-states: "base", "hover", "track";
+$scroll: add-css-var($scroll, "scroll", $scroll-states);
+
+// mask
+$mask: () !default;
+$mask-states: "active", "disabled";
+$mask: add-css-var($mask, "mask", $mask-states);
+
+// transition
+$transition-duration: () !default;
+$transition-duration: map.merge(
+  (
+    "base": 0.2s,
+    "moderate": 0.24s,
+    "slow": 0.28s,
+  ),
+  $transition-duration
+);
+
+$transition-function: () !default;
+$transition-function: map.merge(
+  (
+    "ease-in": cubic-bezier(0.82, 0, 1, 0.9),
+    "ease-out": cubic-bezier(0, 0, 0.15, 1),
+    "ease-in-out": cubic-bezier(0.645, 0.045, 0.355, 1),
+    "easing": cubic-bezier(0.38, 0, 0.24, 1),
+    "fast": cubic-bezier(0.23, 1, 0.32, 1),
+  ),
+  $transition-function
+);
+
+$transition: () !default;
+$transition: map.merge(
+  (
+    "all": all get($transition-duration, "base")
+      get($transition-function, "ease-in-out"),
+    "bg": background-color get($transition-duration, "base")
+      get($transition-function, "ease-in-out"),
+    "fade": opacity get($transition-duration, "base")
+      get($transition-function, "fast"),
+    "md-fade": (
+      transform get($transition-duration, "base")
+        get($transition-function, "fast"),
+      opacity get($transition-duration, "base")
+        get($transition-function, "fast"),
+    ),
+    "fade-linear": opacity get($transition-duration, "base") linear,
+    "border": border-color get($transition-duration, "base")
+      get($transition-function, "ease-in-out"),
+    "box-shadow": box-shadow get($transition-duration, "base")
+      get($transition-function, "ease-in-out"),
+    "color": color get($transition-duration, "base")
+      get($transition-function, "ease-in-out"),
+  ),
+  $transition
+);
+
+$spacer: () !default;
+$spacer: map.merge(
+  (
+    "base": 8px,
+  ),
+  $spacer
+);
+
+$spacer: map.merge(
+  (
+    "small": get($spacer, "base") * 0.5,
+    "medium": get($spacer, "base") * 0.75,
+    "large": get($spacer, "base") * 1.5,
+  ),
+  $spacer
+);
+
+@for $i from 1 through 10 {
+  $spacer: map.set($spacer, $i, get($spacer, "base") * $i);
+}
+
+$fn-space: get($spacer, "base");
+$interval: get($spacer, "small");
+
+// Break-point
+$sm: 768px !default;
+$md: 992px !default;
+$lg: 1200px !default;
+$xl: 1920px !default;
+
+$breakpoints: (
+  "xs": "(max-width: #{$sm})",
+  "sm": "(min-width: #{$sm})",
+  "md": "(min-width: #{$md})",
+  "lg": "(min-width: #{$lg})",
+  "xl": "(min-width: #{$xl})",
+) !default;
+
+$breakpoints-spec: (
+  "xs-only": "(max-width: #{$sm - 1})",
+  "sm-and-up": "(min-width: #{$sm})",
+  "sm-only": "(min-width: #{$sm}) and (max-width: #{$md - 1})",
+  "sm-and-down": "(max-width: #{$md - 1})",
+  "md-and-up": "(min-width: #{$md})",
+  "md-only": "(min-width: #{$md}) and (max-width: #{$lg - 1})",
+  "md-and-down": "(max-width: #{$lg - 1})",
+  "lg-and-up": "(min-width: #{$lg})",
+  "lg-only": "(min-width: #{$lg}) and (max-width: #{$xl - 1})",
+  "lg-and-down": "(max-width: #{$xl - 1})",
+  "xl-only": "(min-width: #{$xl})",
+) !default;
+
+// // Font
+// $font-size-6: 10px;
+// $font-size-5: $font-size-6 * 1.2; // 字号-五级字号
+// $font-size-4: $font-size-6 * 1.4; // 字号-四级字号
+// $font-size-3: $font-size-6 * 1.6; // 字号-三级字号
+// $font-size-2: $font-size-6 * 2; // 字号-二级字号
+// $font-size-1: $font-size-6 * 3.6; // 字号-一级字号
+
+// // Line Height
+// $text-line-height-6: 1.5; // 行高-常规
+// $text-line-height-5: 20px; // 行高-对应五级文字
+// $text-line-height-4: 22px; // 行高-对应四级文字
+// $text-line-height-3: 24px; // 行高-对应三级文字
+// $text-line-height-2: 28px; // 行高-对应二级文字
+// $text-line-height-1: 44px; //行高-对应一级文字
