@@ -2,7 +2,6 @@ import {
     Plugin,
     showMessage,
 } from "siyuan";
-// import "@/index.css";
 import "@/index.scss";
 
 const prefix = "rc";

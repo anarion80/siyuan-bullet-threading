@@ -32,3 +32,15 @@ The plugin originally comes from LogSeq version of bullet threading: [https://gi
 ## ⌨ Usage
 
 Just add some nested lists and focus one them (cursor/scroll). The plugin does not come with any styling so the lines between bullets will be white/black in dark/light modes respecively. It should change to the value of `--text-brand` when available in the theme used.
+
+If `--text-brand` is not available in your theme, you can add the following code snippet in SiYuan settings to set the colors:
+
+```css
+:root {
+    --text-brand: rgb(69, 130, 230);
+}
+
+:root.dark {
+    --text-brand: rgb(97, 175, 239);
+}
+```

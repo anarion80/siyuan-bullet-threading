@@ -32,3 +32,17 @@ Wtyczka oryginalnie bazuje na wersji LogSeq: [https://github.com/pengx17/logseq-
 ## ⌨ Użytkowanie
 
 Wystarczy dodać zagnieżdżone punkty do listy i ustawić na nich kursor (lub przewinąć widok do nich). Wtyczka nie zawiera własnych stylów, więc linie między punktami będą odpowiednio białe/czarne w trybie ciemnym/jasnym. Powinny zmienić kolor na wartość `--text-brand`, gdy będzie ona dostępna w używanym temacie.
+
+Jeśli `--text-brand` nie występuje w twoim temacie, możesz dodać następujący code snippet w ustawieniach SiYuan:
+
+```css
+:root {
+    --text-brand: rgb(69, 130, 230);
+}
+
+:root.dark {
+    --text-brand: rgb(97, 175, 239);
+}
+```
+
+aby ustwić wymagane kolory.
