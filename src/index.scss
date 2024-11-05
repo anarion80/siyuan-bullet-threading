@@ -54,7 +54,7 @@ $height: $action-h + 4px;
 
             &:has(.rc-focus) {
                 &::after {
-                    height: $height;
+                    height: $height; // -2 px
 
                     border: {
                         radius: 0 0 0 get($radius, "large");
@@ -74,7 +74,7 @@ $height: $action-h + 4px;
 
             // TO DO list bullets
             &[data-subtype="t"]::after {
-                width: $width - 6px;
+                width: $width - 7px;
             }
         }
     }
@@ -144,11 +144,11 @@ $height: $action-h + 4px;
 
         >.list:has(.rc-focus)>.li {
             &::after {
-                top: $top + 6px;
+                top: $top + 10px;
             }
 
             &:has(.rc-focus)::after {
-                height: $height - 6px;
+                height: $height - 10px;
             }
         }
 
