@@ -20,10 +20,12 @@
     "desktop-window"
   ],
   "displayName": {
+    "default": "Bullet threading for lists",
     "en_US": "Bullet threading for lists",
     "pl_PL": "Linie łączące elementy zagnieżdżonych list"
   },
   "description": {
+    "default": "A plugin that adds nice lines to nested list elements (bullets). Based on simliar plugin for LogSeq.",
     "en_US": "A plugin that adds nice lines to nested list elements (bullets). Based on simliar plugin for LogSeq.",
     "pl_PL": "Wtyczka dodająca estetyczne linie łączące elementy zagnieżdżonych list. Bazuje na podobnej wtyczce dla LogSeq."
   },
