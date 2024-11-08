@@ -1,5 +1,5 @@
 <p align="center">
-<img alt="SiYuan" src="icon.png">
+<img alt="SiYuan" src="https://raw.githubusercontent.com/anarion80/siyuan-bullet-threading/refs/heads/main/icon.png">
 <br>
 <em>SiYuan Bullet Threading</em>
 <br><br>
@@ -23,7 +23,7 @@
 
 This is a plugin that adds bullet threading to nested lists (unordered, ordered, TODOs).
 
-It is just extracted and repackaged plugin from excellent [Rem-Craft](https://github.com/svchord/Rem-Craft) theme (I didn't want the whole there, just bullet threading), so all credit goes to [svchord](https://github.com/svchord).
+It is just extracted and repackaged plugin from excellent [Rem-Craft](https://github.com/svchord/Rem-Craft) theme (I didn't want to use the whoel theme, just bullet threading), so all credit goes to [svchord](https://github.com/svchord).
 
 I did change alignment of the lines a little bit though, as the lines were not connecting in the middle of a bullet/number.
 

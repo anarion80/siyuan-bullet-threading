@@ -1,5 +1,5 @@
 <p align="center">
-<img alt="SiYuan" src="icon.png">
+<img alt="SiYuan" src="https://raw.githubusercontent.com/anarion80/siyuan-bullet-threading/refs/heads/main/icon.png">
 <br>
 <em>SiYuan Bullet Threading</em>
 <br><br>
