@@ -29,6 +29,13 @@ $height: $action-h + 4px;
     line-height: $action-h;
 }
 
+.protyle-wysiwyg [data-node-id].li {
+&::before {
+    --b3-theme-background-light: rgba(255, 255, 255, 0);
+    --b3-scroll-color: rgba(255, 255, 255, 0);
+  }
+}
+
 .protyle-wysiwyg [data-node-id].li:has(.rc-focus) {
     >.protyle-action {
         color: get($text, "brand");
