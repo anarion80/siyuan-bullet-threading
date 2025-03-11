@@ -102,7 +102,7 @@ $height: $action-h + 4px;
             // bottom: 0;
         }
 
-        &[data-type="NodeHeading"]::before {
+        &[data-type="NodeHeading"]::after {
             top: 0;
             height: calc(185%);
         }
