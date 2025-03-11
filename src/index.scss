@@ -45,11 +45,12 @@ $height: $action-h + 4px;
 
     >.list:has(.rc-focus) {
         >.li {
-            &::after {
+            &::before {
                 @include border();
+                height: auto;
             }
 
-            &:not(:has(.rc-focus))::after {
+            &:not(:has(.rc-focus))::before {
                 bottom: -2px;
 
                 border: {
@@ -58,7 +59,7 @@ $height: $action-h + 4px;
             }
 
             &:has(.rc-focus) {
-                &::after {
+                &::before {
                     height: $height; // -2 px
 
                     border: {
@@ -67,25 +68,25 @@ $height: $action-h + 4px;
                     }
                 }
 
-                ~.li:not(:has(.rc-focus))::after {
+                ~.li:not(:has(.rc-focus))::before {
                     border-color: transparent;
                 }
             }
 
             // Ordered list bullets
-            &[data-subtype="o"]::after {
+            &[data-subtype="o"]::before {
                 width: $width - 10px;
             }
 
             // TO DO list bullets
-            &[data-subtype="t"]::after {
+            &[data-subtype="t"]::before {
                 width: $width - 7px;
             }
         }
     }
 
     >[data-node-id] {
-        &::after {
+        &::before {
             @include border();
             top: math.div($action-w, 2) + 3px;
             height: calc(100% + 8px);
@@ -96,12 +97,12 @@ $height: $action-h + 4px;
         }
 
         // 列表子块的前一个块辅助线去掉毛边
-        &:has(+ .list)::after {
+        &:has(+ .list)::before {
             height: auto;
             // bottom: 0;
         }
 
-        &[data-type="NodeHeading"]::after {
+        &[data-type="NodeHeading"]::before {
             top: 0;
             height: calc(185%);
         }
@@ -111,27 +112,27 @@ $height: $action-h + 4px;
         &.sb {
 
             // focused block
-            &:has(.rc-focus)::after,
-            // block after focused block
-            &:has(.rc-focus)~[data-node-id]::after {
+            &:has(.rc-focus)::before,
+            // block before focused block
+            &:has(.rc-focus)~[data-node-id]::before {
                 border-color: transparent;
             }
         }
     }
 
-    &[fold="1"]>[data-node-id]::after,
-    &:has(> .rc-focus)>[data-node-id]::after {
+    &[fold="1"]>[data-node-id]::before,
+    &:has(> .rc-focus)>[data-node-id]::before {
         border-color: transparent;
     }
 
     // Ordered list items
     &[data-subtype="o"]:has(.rc-focus) {
         >.list:has(.rc-focus)>.li {
-            &::after {
+            &::before {
                 top: $top + 10px;
             }
 
-            &:has(.rc-focus)::after {
+            &:has(.rc-focus)::before {
                 height: $height - 10px;
             }
         }
@@ -148,16 +149,16 @@ $height: $action-h + 4px;
         }
 
         >.list:has(.rc-focus)>.li {
-            &::after {
+            &::before {
                 top: $top + 10px;
             }
 
-            &:has(.rc-focus)::after {
+            &:has(.rc-focus)::before {
                 height: $height - 10px;
             }
         }
 
-        &.protyle-task--done>.list:has(.rc-focus)>.li::after {
+        &.protyle-task--done>.list:has(.rc-focus)>.li::before {
             border-color: get($border, 1);
         }
     }
