@@ -47,11 +47,12 @@ $height: $action-h + 4px;
         >.li {
             &::before {
                 @include border();
-                height: auto;
+                height: calc(100% - 8px);
             }
 
             &:not(:has(.rc-focus))::before {
                 bottom: -2px;
+                height: calc(100% + 8px);
 
                 border: {
                     width: 0 0 0 2px;
@@ -96,10 +97,10 @@ $height: $action-h + 4px;
             }
         }
 
-        // 列表子块的前一个块辅助线去掉毛边
+        // correct edges at the curve
         &:has(+ .list)::before {
             height: auto;
-            // bottom: 0;
+            bottom: 0;
         }
 
         &[data-type="NodeHeading"]::after {
@@ -127,6 +128,11 @@ $height: $action-h + 4px;
 
     // Ordered list items
     &[data-subtype="o"]:has(.rc-focus) {
+        >[data-node-id] {
+            &::before {
+                top: math.div($action-w, 2) + 11px;
+            }
+        }
         >.list:has(.rc-focus)>.li {
             &::before {
                 top: $top + 10px;
@@ -140,6 +146,11 @@ $height: $action-h + 4px;
 
     // to do list items
     &[data-subtype="t"]:has(.rc-focus) {
+        >[data-node-id] {
+            &::before {
+                top: math.div($action-w, 2) + 9px;
+            }
+        }
         >.protyle-action {
             color: get($text, "brand");
 
@@ -150,11 +161,11 @@ $height: $action-h + 4px;
 
         >.list:has(.rc-focus)>.li {
             &::before {
-                top: $top + 10px;
+                top: $top + 12px;
             }
 
             &:has(.rc-focus)::before {
-                height: $height - 10px;
+                height: $height - 12px;
             }
         }
 
