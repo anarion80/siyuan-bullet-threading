@@ -1,6 +1,6 @@
 {
   "name": "siyuan-bullet-threading",
-  "version": "0.1.5",
+  "version": "0.1.5.1",
   "type": "module",
   "description": "A plugin that adds nice lines to nested list elements (bullets). Based on simliar plugin for LogSeq.",
   "repository": "https://github.com/anarion80/siyuan-bullet-threading",
