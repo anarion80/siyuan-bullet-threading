@@ -46,3 +46,7 @@ Jeśli `--text-brand` nie występuje w twoim temacie, możesz dodać następują
 ```
 
 aby ustwić wymagane kolory.
+
+## ⚠️  Uwaga
+
+Plugin może wchodzić w konflikty z innymi pluginami, które zmieniają CSS dla list lub zmieniają wysokość linii. Plugin został zaktualizowany aby działał poprawnie z [sy-line-height](https://github.com/frostime/sy-line-height), ale i tak proszę mieć na uwadze ewentualne problemy.
