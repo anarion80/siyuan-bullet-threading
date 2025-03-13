@@ -29,6 +29,15 @@ $height: $action-h + 4px;
     line-height: $action-h;
 }
 
+// #layouts div.layout-tab-container>div.protyle>div.protyle-content>div.protyle-wysiwyg div.li[data-node-id]:before {
+//     // height: calc(100% - ($height + 12px));
+//     top: $height;
+// }
+
+// #layouts div.layout-tab-container>div.protyle>div.protyle-content>div.protyle-wysiwyg div.li[data-node-id]:not([data-subtype=o]):before {
+//     top: $height; /* Your desired value */
+// }
+
 .protyle-wysiwyg [data-node-id].li:has(.rc-focus) {
     &::before {
         --b3-theme-background-light: rgba(255, 255, 255, 0);
@@ -48,6 +57,7 @@ $height: $action-h + 4px;
             &::before {
                 @include border();
                 height: calc(100% - 8px);
+                top: $top !important;
             }
 
             &:not(:has(.rc-focus))::before {
@@ -61,7 +71,7 @@ $height: $action-h + 4px;
 
             &:has(.rc-focus) {
                 &::before {
-                    height: $height; // -2 px
+                height: calc(#{$height} + var(--list-action-offset-sum, 0px)); // -2 px
 
                     border: {
                         radius: 0 0 0 get($radius, "large");
@@ -130,16 +140,17 @@ $height: $action-h + 4px;
     &[data-subtype="o"]:has(.rc-focus) {
         >[data-node-id] {
             &::before {
-                top: math.div($action-w, 2) + 11px;
+                top: calc(math.div($action-w, 2) + 11px + var(--list-action-offset-sum, 0px));
             }
         }
         >.list:has(.rc-focus)>.li {
             &::before {
-                top: $top + 10px;
+                top: $top + 10px !important;
             }
 
             &:has(.rc-focus)::before {
-                height: $height - 10px;
+                // height: $height - 10px;
+                height: calc(#{$height} + var(--list-action-offset-sum, 0px) - 10px);
             }
         }
     }
@@ -148,7 +159,7 @@ $height: $action-h + 4px;
     &[data-subtype="t"]:has(.rc-focus) {
         >[data-node-id] {
             &::before {
-                top: math.div($action-w, 2) + 9px;
+                top: calc(math.div($action-w, 2) + 9px + var(--list-action-offset-sum, 0px));
             }
         }
         >.protyle-action {
@@ -161,11 +172,12 @@ $height: $action-h + 4px;
 
         >.list:has(.rc-focus)>.li {
             &::before {
-                top: $top + 12px;
+                top: $top + 12px !important;
             }
 
             &:has(.rc-focus)::before {
-                height: $height - 12px;
+                // height: $height - 12px;
+                height: calc(#{$height} + var(--list-action-offset-sum, 0px) - 12px);
             }
         }
 
