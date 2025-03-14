@@ -23,7 +23,7 @@
 
 This is a plugin that adds bullet threading to nested lists (unordered, ordered, TODOs).
 
-It is just extracted and repackaged plugin from excellent [Rem-Craft](https://github.com/svchord/Rem-Craft) theme (I didn't want to use the whoel theme, just bullet threading), so all credit goes to [svchord](https://github.com/svchord).
+It is just extracted and repackaged plugin from excellent [Rem-Craft](https://github.com/svchord/Rem-Craft) theme (I didn't want to use the whole theme, just bullet threading), so all credit goes to [svchord](https://github.com/svchord).
 
 I did change alignment of the lines a little bit though, as the lines were not connecting in the middle of a bullet/number.
 
@@ -44,3 +44,8 @@ If `--text-brand` is not available in your theme, you can add the following code
     --text-brand: rgb(97, 175, 239);
 }
 ```
+
+## ⚠️ Warning
+
+This plugin can interfere with other plugins which change CSS for lists or line heights. It was updated to work correctly with [sy-line-height](https://github.com/frostime/sy-line-height) plugin, but anyway, be careful when using it.
+
