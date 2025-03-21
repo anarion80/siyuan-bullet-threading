@@ -29,7 +29,7 @@ $height: $action-h + 4px;
     line-height: $action-h;
 }
 
-.protyle-wysiwyg [data-node-id].li:has(.rc-focus) {
+.protyle-wysiwyg [data-node-id].li:not(:has(.protyle-wysiwyg--select)):has(.rc-focus) {
     &::before {
         --b3-theme-background-light: rgba(255, 255, 255, 0);
         --b3-scroll-color: rgba(255, 255, 255, 0);
@@ -45,12 +45,12 @@ $height: $action-h + 4px;
 
     >.list:has(.rc-focus) {
         >.li {
-            &::before {
+            &::after {
                 @include border();
                 top: $top !important;
             }
 
-            &:not(:has(.rc-focus))::before {
+            &:not(:has(.rc-focus))::after {
                 bottom: -2px;
                 // height: calc(100% + 8px);
                 height: calc(100% + 8px + var(--custom-node-margin-tb, 0px));
@@ -61,7 +61,7 @@ $height: $action-h + 4px;
             }
 
             &:has(.rc-focus) {
-                &::before {
+                &::after {
                 height: calc(#{$height} + var(--list-action-offset-sum, 0px)); // -2 px
 
                     border: {
@@ -70,25 +70,25 @@ $height: $action-h + 4px;
                     }
                 }
 
-                ~.li:not(:has(.rc-focus))::before {
+                ~.li:not(:has(.rc-focus))::after {
                     border-color: transparent;
                 }
             }
 
             // Ordered list bullets
-            &[data-subtype="o"]::before {
+            &[data-subtype="o"]::after {
                 width: $width - 10px;
             }
 
             // TO DO list bullets
-            &[data-subtype="t"]::before {
+            &[data-subtype="t"]::after {
                 width: $width - 7px;
             }
         }
     }
 
     >[data-node-id] {
-        &::before {
+        &::after {
             @include border();
             top: calc(math.div($action-w, 2) + 3px + var(--list-action-offset-sum, 0px) - var(--custom-node-margin-tb, 0px));
             height: calc(100% + 8px);
@@ -99,12 +99,12 @@ $height: $action-h + 4px;
         }
 
         // correct edges at the curve
-        &:has(+ .list)::before {
+        &:has(+ .list)::after {
             height: auto;
             bottom: calc(0px - (var(--custom-node-margin-tb, 0px)) - 3px);
         }
 
-        &[data-type="NodeHeading"]::after {
+        &[data-type="NodeHeading"]::before {
             top: 0;
             height: calc(185%);
         }
@@ -114,32 +114,32 @@ $height: $action-h + 4px;
         &.sb {
 
             // focused block
-            &:has(.rc-focus)::before,
-            // block before focused block
-            &:has(.rc-focus)~[data-node-id]::before {
+            &:has(.rc-focus)::after,
+            // block after focused block
+            &:has(.rc-focus)~[data-node-id]::after {
                 border-color: transparent;
             }
         }
     }
 
-    &[fold="1"]>[data-node-id]::before,
-    &:has(> .rc-focus)>[data-node-id]::before {
+    &[fold="1"]>[data-node-id]::after,
+    &:has(> .rc-focus)>[data-node-id]::after {
         border-color: transparent;
     }
 
     // Ordered list items
     &[data-subtype="o"]:has(.rc-focus) {
         >[data-node-id] {
-            &::before {
+            &::after {
                 top: calc(math.div($action-w, 2) + 11px + var(--list-action-offset-sum, 0px) - var(--custom-node-margin-tb, 0px));
             }
         }
         >.list:has(.rc-focus)>.li {
-            &::before {
+            &::after {
                 top: $top + 10px !important;
             }
 
-            &:has(.rc-focus)::before {
+            &:has(.rc-focus)::after {
                 height: calc(#{$height} + var(--list-action-offset-sum, 0px) - 10px);
             }
         }
@@ -148,7 +148,7 @@ $height: $action-h + 4px;
     // to do list items
     &[data-subtype="t"]:has(.rc-focus) {
         >[data-node-id] {
-            &::before {
+            &::after {
                 top: calc(math.div($action-w, 2) + 9px + var(--list-action-offset-sum, 0px) - var(--custom-node-margin-tb, 0px));
             }
         }
@@ -161,16 +161,16 @@ $height: $action-h + 4px;
         }
 
         >.list:has(.rc-focus)>.li {
-            &::before {
+            &::after {
                 top: $top + 12px !important;
             }
 
-            &:has(.rc-focus)::before {
+            &:has(.rc-focus)::after {
                 height: calc(#{$height} + var(--list-action-offset-sum, 0px) - 12px);
             }
         }
 
-        &.protyle-task--done>.list:has(.rc-focus)>.li::before {
+        &.protyle-task--done>.list:has(.rc-focus)>.li::after {
             border-color: get($border, 1);
         }
     }
